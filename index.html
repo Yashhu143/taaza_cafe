@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Enjoy authentic South Indian breakfast tiffins and traditional filter coffee at Taaza Cafe, Turkayamjal. Order fresh idli, crispy dosa, and hot ginger tea online.">
+  <title>Taaza Cafe | Authentic South Indian Tiffins & Coffee</title>
+  
+  <!-- FontAwesome for clean vector icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Google Identity Services (GSI) SDK -->
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Sticky Glassmorphic Header -->
+  <header class="header">
+    <div class="container nav">
+      <a href="#" class="logo" id="logo">
+        Taaza Cafe<span class="logo-dot"></span>
+      </a>
+      
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#" class="active" data-section="home">Home</a></li>
+        <li><a href="#menu" data-section="menu">Menu</a></li>
+        <li><a href="#contact" data-section="contact">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <!-- Auth Actions Wrapper -->
+        <div id="auth-header-wrapper" style="display: flex; gap: 12px; align-items: center;">
+          <button class="cart-trigger" id="btn-show-auth" style="border: 1px solid var(--primary); color: var(--primary);">
+            <i class="fa-regular fa-user"></i>
+            <span>Sign In</span>
+          </button>
+        </div>
+
+        <button class="cart-trigger" id="cart-trigger">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <span>Cart</span>
+          <span class="cart-badge" id="cart-badge">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="container">
+      <div class="hero-content">
+        <p class="hero-tagline">Freshly Cooked &bull; Daily Served</p>
+        <h1>Pure Taste.<br>Cozy Vibes. Traditional Warmth.</h1>
+        <p>Experience the finest hot tiffins, crispy dosas, and authentic filter coffee in Hyderabad. Handcrafted fresh every day at Turkayamjal.</p>
+        <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+          <a href="#menu" class="btn btn-primary">View Our Menu</a>
+          <a href="#contact" class="btn btn-outline">Find Us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Menu Section -->
+  <section class="section container" id="menu">
+    <div class="section-header">
+      <p class="section-tagline">Satisfy Your Cravings</p>
+      <h2>What's Cooking Today</h2>
+    </div>
+
+    <!-- Category Filters -->
+    <div class="menu-filters" id="menu-filters">
+      <button class="filter-btn active" data-category="all">All Items</button>
+      <button class="filter-btn" data-category="breakfast">Tiffins</button>
+      <button class="filter-btn" data-category="mains">Rice Dishes</button>
+      <button class="filter-btn" data-category="beverages">Beverages</button>
+      <button class="filter-btn" data-category="snacks">Snacks</button>
+      <button class="filter-btn" data-category="juices">Juices</button>
+    </div>
+
+    <!-- Dynamic Menu Grid -->
+    <div class="menu-grid" id="menu-grid">
+      <!-- Injected dynamically by JavaScript -->
+    </div>
+  </section>
+
+  <!-- Contact & Location Section -->
+  <section class="section container" id="contact" style="border-top: 1px solid var(--border);">
+    <div class="section-header">
+      <p class="section-tagline">Locate Us</p>
+      <h2>Visit Taaza Cafe</h2>
+    </div>
+
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="info-block">
+          <h3>Our Address</h3>
+          <p>Nagarjuna Sagar Rd, Ragannaguda/Turkayamjal,<br>Hyderabad, Telangana 501510, India</p>
+          <p style="margin-top: 12px;">
+            <a href="https://maps.app.goo.gl/eHxP7pTL5CNyHFLXA" target="_blank" rel="noopener">
+              <i class="fa-solid fa-location-dot" style="margin-right: 6px;"></i>Open in Google Maps
+            </a>
+          </p>
+        </div>
+
+        <div class="info-block">
+          <h3>Operating Hours</h3>
+          <p><strong>Daily:</strong> 7:00 AM - 11:00 PM</p>
+          <p style="color: var(--text-muted); font-size: 14px; margin-top: 4px;">Kitchen closes at 10:45 PM</p>
+        </div>
+
+        <div class="info-block">
+          <h3>Contact Details</h3>
+          <p>For large catering orders or queries:</p>
+          <p><strong>Phone:</strong> <a href="tel:+917416668808">+91 7416668808</a></p>
+        </div>
+      </div>
+
+      <!-- Google Maps Embed placeholder -->
+      <div class="map-container">
+        <iframe 
+          title="Google Map Location of Taaza Cafe"
+          src="https://maps.google.com/maps?q=Taaza%20Tiffins%20Turkayamjal%20Hyderabad&t=&z=16&ie=UTF8&iwloc=&output=embed" 
+          allowfullscreen="" 
+          loading="lazy">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sliding Cart Drawer -->
+  <div class="backdrop" id="cart-backdrop"></div>
+  <aside class="cart-drawer" id="cart-drawer">
+    <div class="cart-drawer-header">
+      <span class="cart-drawer-title">Your Order Bag</span>
+      <button class="btn-close-drawer" id="close-cart" aria-label="Close Cart">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+    
+    <div class="cart-drawer-items" id="cart-items-container">
+      <!-- Cart items injected dynamically by JS -->
+    </div>
+    
+    <div class="cart-drawer-footer">
+      <div class="cart-summary-row">
+        <span class="cart-total-label">Subtotal</span>
+        <span class="cart-total-val" id="cart-total">&#8377;0.00</span>
+      </div>
+      <button class="btn btn-primary btn-checkout" id="btn-proceed-checkout" disabled>
+        Proceed to Checkout
+      </button>
+    </div>
+  </aside>
+
+  <!-- Sign In & Register Modal -->
+  <div class="backdrop" id="auth-backdrop"></div>
+  <div class="modal" id="auth-modal" style="max-width: 420px;">
+    <div class="modal-header" style="padding-bottom: 0; border: none;">
+      <div class="auth-tabs" style="display: flex; gap: 20px; border-bottom: 1px solid var(--border); width: 100%;">
+        <button class="auth-tab-btn active" id="tab-login" style="background: none; border: none; font-family: var(--font); font-size: 16px; font-weight: 600; padding: 12px 0; cursor: pointer; border-bottom: 2px solid var(--primary); color: var(--primary);">Login</button>
+        <button class="auth-tab-btn" id="tab-register" style="background: none; border: none; font-family: var(--font); font-size: 16px; font-weight: 500; padding: 12px 0; cursor: pointer; border-bottom: 2px solid transparent; color: var(--text-muted);">Register</button>
+      </div>
+      <button class="btn-close-modal" id="close-auth-modal" aria-label="Close" style="margin-top: -12px;">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+    
+    <div class="modal-body">
+      <!-- Login panel -->
+      <div class="auth-panel active" id="panel-login">
+        <form id="login-form">
+          <div class="form-group">
+            <label class="form-label" for="login-id">Mobile Number or Email</label>
+            <input type="text" id="login-id" class="form-input" placeholder="Enter mobile or email" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="login-password">Password</label>
+            <input type="password" id="login-password" class="form-input" placeholder="Enter password" required>
+          </div>
+          <div id="login-error-msg" style="color: #b33939; font-size: 13px; margin-bottom: 16px; display: none;"></div>
+          <button type="submit" class="btn btn-primary" style="width: 100%;">Log In</button>
+          
+          <div style="margin: 16px 0; text-align: center; color: var(--text-muted); font-size: 13px;">or</div>
+          
+          <!-- Google Sign-In button container -->
+          <div style="display: flex; justify-content: center; width: 100%;">
+            <div id="google-login-btn"></div>
+          </div>
+        </form>
+      </div>
+
+      <!-- Register panel -->
+      <div class="auth-panel" id="panel-register" style="display: none;">
+        <!-- Step 1: Input registration fields -->
+        <form id="register-form">
+          <div class="auth-fields-wrapper" id="register-fields-wrapper">
+            <div class="form-group">
+              <label class="form-label" for="reg-name">Full Name</label>
+              <input type="text" id="reg-name" class="form-input" placeholder="e.g. Rahul Kumar" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="reg-phone">Mobile Number</label>
+              <input type="tel" id="reg-phone" class="form-input" placeholder="10-digit number" pattern="[6789][0-9]{9}" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="reg-email">Email Address</label>
+              <input type="email" id="reg-email" class="form-input" placeholder="e.g. rahul@example.com" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="reg-password">Password</label>
+              <input type="password" id="reg-password" class="form-input" placeholder="Create strong password" required>
+              <small style="color: var(--text-muted); font-size: 11px; display: block; margin-top: 4px; line-height: 1.3;">Must contain at least 8 characters, an uppercase letter, a lowercase letter, a number, and a special character.</small>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="reg-confirm-password">Confirm Password</label>
+              <input type="password" id="reg-confirm-password" class="form-input" placeholder="Re-enter password" required>
+            </div>
+            <div id="register-error-msg" style="color: #b33939; font-size: 13px; margin-bottom: 16px; display: none;"></div>
+            <button type="submit" class="btn btn-primary" style="width: 100%;">Create Account</button>
+            
+            <div style="margin: 16px 0; text-align: center; color: var(--text-muted); font-size: 13px;">or</div>
+            
+            <!-- Google Sign-Up button container -->
+            <div style="display: flex; justify-content: center; width: 100%;">
+              <div id="google-signup-btn"></div>
+            </div>
+          </div>
+        </form>
+
+        <!-- Step 2: OTP Verification screen -->
+        <div class="otp-verification-wrapper" id="register-otp-wrapper" style="display: none; text-align: left;">
+          <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 20px; line-height: 1.4;">
+            A 6-digit verification code has been sent to your email address. Please enter the code below to complete your registration.
+          </p>
+          <div class="form-group">
+            <label class="form-label" for="otp-code">6-Digit Verification Code</label>
+            <input type="text" id="otp-code" class="form-input" placeholder="Enter 6-digit code" pattern="[0-9]{6}" minlength="6" maxlength="6">
+          </div>
+          <div id="otp-error-msg" style="color: #b33939; font-size: 13px; margin-bottom: 16px; display: none;"></div>
+          <button type="button" class="btn btn-primary" id="btn-verify-otp" style="width: 100%; background-color: var(--secondary);">
+            Verify &amp; Create Account
+          </button>
+          <button type="button" class="btn btn-outline" id="btn-cancel-otp" style="width: 100%; margin-top: 10px; border-color: var(--border); color: var(--text-muted); padding: 11px;">
+            Back to Signup
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- User Profile Modal -->
+  <div class="backdrop" id="profile-backdrop"></div>
+  <div class="modal" id="profile-modal" style="max-width: 680px;">
+    <div class="modal-header">
+      <h3>My Profile &amp; Orders</h3>
+      <button class="btn-close-modal" id="close-profile-modal" aria-label="Close Profile">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+    
+    <div class="modal-body" style="padding-top: 10px;">
+      <!-- Profile Contact Info -->
+      <section style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-bottom: 24px; padding-bottom: 20px; border-bottom: 1px solid var(--border);">
+        <div style="background: #FDFCFB; border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 16px;">
+          <div style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-muted); margin-bottom: 4px; font-weight: 700;">Customer Name</div>
+          <div style="font-weight: 700; color: var(--text-main);" id="profile-display-name">-</div>
+        </div>
+        <div style="background: #FDFCFB; border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 16px;">
+          <div style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-muted); margin-bottom: 4px; font-weight: 700;">Mobile Number</div>
+          <div style="font-weight: 700; color: var(--text-main);" id="profile-display-phone">-</div>
+        </div>
+        <div style="background: #FDFCFB; border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 16px;">
+          <div style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-muted); margin-bottom: 4px; font-weight: 700;">Email Address</div>
+          <div style="font-weight: 700; color: var(--text-main);" id="profile-display-email">-</div>
+        </div>
+      </section>
+      
+      <!-- Order History List -->
+      <section>
+        <h4 style="font-size: 16px; font-weight: 700; margin-bottom: 16px; color: var(--text-main);">Order History</h4>
+        <div style="max-height: 320px; overflow-y: auto; display: flex; flex-direction: column; gap: 16px;" id="profile-orders-feed">
+          <div style="text-align: center; padding: 40px; color: var(--text-muted);">
+            <i class="fa-solid fa-clipboard-list" style="font-size: 32px; color: var(--border); margin-bottom: 8px; display: block;"></i>
+            No orders placed yet.
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- Checkout & Payment Modal -->
+  <div class="backdrop" id="modal-backdrop"></div>
+  <div class="modal" id="checkout-modal">
+    <!-- Header -->
+    <div class="modal-header">
+      <h3 id="modal-title">Checkout</h3>
+      <button class="btn-close-modal" id="close-modal" aria-label="Close Modal">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+    
+    <!-- Body -->
+    <div class="modal-body">
+      <!-- Step 1: Input details form -->
+      <form id="checkout-form">
+        <div class="form-group">
+          <label class="form-label">Order Type</label>
+          <div class="order-type-btn-group">
+            <button type="button" class="order-type-btn active" data-type="dine-in">Dine-in (Table)</button>
+            <button type="button" class="order-type-btn" data-type="takeaway">Takeaway</button>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="cust-name">Your Name</label>
+          <input type="text" id="cust-name" class="form-input" placeholder="Enter your name" required>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="cust-phone">Mobile Number</label>
+            <input type="tel" id="cust-phone" class="form-input" placeholder="10-digit number" pattern="[6789][0-9]{9}" required>
+          </div>
+          <div class="form-group" id="table-number-group">
+            <label class="form-label" for="table-num">Table Number</label>
+            <input type="number" id="table-num" class="form-input" min="1" max="50" placeholder="e.g. 5">
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 10px;">
+          Confirm & Pay
+        </button>
+      </form>
+
+      <!-- Step 2: Spinner overlay -->
+      <div class="spinner-container" id="payment-spinner">
+        <div class="spinner"></div>
+        <p class="spinner-text" id="sp-title">Connecting to Payment Gateway</p>
+        <p class="spinner-subtext" id="sp-subtext">Generating secure real-time UPI transaction...</p>
+      </div>
+
+      <!-- Step 3: Scan QR and Enter UTR form -->
+      <div class="success-container" id="payment-pending-verification">
+        <p class="section-tagline" style="margin-bottom: 4px;">Awaiting Payment</p>
+        <h4 class="success-title" style="margin-bottom: 2px;">Scan &amp; Pay</h4>
+        <div class="success-order-id" id="display-order-id" style="margin-bottom: 12px;">TZ-XXXXXX</div>
+        
+        <!-- Realtime QR section -->
+        <div class="payment-qr-section" style="margin-bottom: 16px;">
+          <div class="qr-code-wrapper" style="margin-bottom: 12px;">
+            <img id="upi-qr-image" class="qr-code-img" src="" alt="Scan to pay">
+          </div>
+          <div class="payment-amount" id="display-payment-amount" style="margin-bottom: 4px;">&#8377;0.00</div>
+          <p class="payment-note" style="margin-bottom: 12px;">Scan this QR code with any UPI app (GPay, PhonePe, Paytm) to make the payment.</p>
+          <a href="#" id="upi-deep-link" class="btn-upi-pay" style="padding: 10px 16px; font-size: 13px; margin-bottom: 16px;">
+            <i class="fa-solid fa-mobile-screen-button" style="margin-right: 8px;"></i>Pay via Mobile App
+          </a>
+          
+          <!-- Mock simulation panel under QR for user control -->
+          <div class="simulation-controls" style="border-top: 1px dashed var(--border); padding-top: 12px; width: 100%; text-align: center;">
+            <p style="font-size: 11px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; margin-bottom: 8px; letter-spacing: 0.5px;">Simulate Payment Outcome</p>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+              <button type="button" id="btn-sim-success" style="background: var(--secondary); color: #fff; border: none; padding: 8px; font-size: 11px; font-weight: 600; border-radius: 4px; cursor: pointer; transition: var(--transition);">
+                <i class="fa-solid fa-circle-check" style="margin-right: 4px;"></i>Simulate Paid
+              </button>
+              <button type="button" id="btn-sim-fail" style="background: #b33939; color: #fff; border: none; padding: 8px; font-size: 11px; font-weight: 600; border-radius: 4px; cursor: pointer; transition: var(--transition);">
+                <i class="fa-solid fa-circle-xmark" style="margin-right: 4px;"></i>Simulate Fail
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- UTR input form to confirm payment -->
+        <form id="payment-utr-form" style="width: 100%; text-align: left;">
+          <div class="form-group" style="margin-bottom: 12px;">
+            <label class="form-label" for="upi-utr-input">Enter 12-Digit UPI Transaction ID (UTR / Ref No.)</label>
+            <input type="text" id="upi-utr-input" class="form-input" placeholder="e.g. 306512345678" pattern="[0-9]{12}" minlength="12" maxlength="12" required>
+            <small style="color: var(--text-muted); font-size: 11px; margin-top: 4px; display: block;">You can find this 12-digit number in your UPI app's transaction history after payment.</small>
+          </div>
+          <div id="utr-error-msg" style="color: #b33939; font-size: 13px; margin-bottom: 12px; display: none;"></div>
+          <button type="submit" class="btn btn-primary" style="width: 100%; background-color: var(--secondary);">
+            Verify Payment &amp; Place Order
+          </button>
+        </form>
+      </div>
+
+      <!-- Step 4: Final Success screen -->
+      <div class="success-container" id="payment-success">
+        <div class="success-icon-wrapper">
+          <i class="fa-solid fa-circle-check" style="font-size: 40px; color: var(--secondary);"></i>
+        </div>
+        <h4 class="success-title">Order Confirmed!</h4>
+        <div class="success-order-id" id="display-success-order-id" style="background: rgba(78, 108, 80, 0.1); color: var(--secondary); border: 1px solid rgba(78,108,80,0.2);">TZ-XXXXXX</div>
+        <p style="font-size: 16px; font-weight: 600; margin-bottom: 12px; color: var(--text-main);">
+          Payment Verified Successfully!
+        </p>
+        <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 24px;">
+          Your payment of <strong id="display-success-amount">&#8377;0.00</strong> has been received. The kitchen has started preparing your order.
+        </p>
+        <button class="btn btn-primary" id="btn-close-success" style="width: 100%;">
+          Back to Menu
+        </button>
+      </div>
+
+      <!-- Step 5: Final Failure screen -->
+      <div class="success-container" id="payment-failed" style="display: none;">
+        <div class="success-icon-wrapper" style="background: rgba(179, 57, 57, 0.1); color: #b33939;">
+          <i class="fa-solid fa-circle-xmark" style="font-size: 40px; color: #b33939;"></i>
+        </div>
+        <h4 class="success-title" style="color: #b33939;">Payment Failed</h4>
+        <div class="success-order-id" id="display-failed-order-id" style="background: rgba(179, 57, 57, 0.05); color: #b33939; border: 1px solid rgba(179,57,57,0.1);">TZ-XXXXXX</div>
+        <p style="font-size: 16px; font-weight: 600; margin-bottom: 12px; color: #b33939;">
+          Transaction Rejected
+        </p>
+        <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 24px;">
+          The payment verification failed or was declined by the bank. Please try paying again or verify the transaction ID.
+        </p>
+        <button class="btn btn-primary" id="btn-retry-payment" style="width: 100%;">
+          Retry Verification
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-top">
+      <div class="footer-brand">
+        <a href="#" class="footer-logo">Taaza Cafe</a>
+        <p class="footer-tagline">Pure vegetarian South Indian kitchen & coffee.</p>
+      </div>
+      
+      <div class="footer-payments-list">
+        <span>We Accept</span>
+        <i class="fa-brands fa-cc-visa" style="font-size: 28px; color: #1A1F71;" title="Visa"></i>
+        <i class="fa-brands fa-cc-mastercard" style="font-size: 28px; color: #EB001B;" title="Mastercard"></i>
+        <span style="font-size: 14px; font-weight: 800; border: 1.5px solid var(--text-muted); padding: 2px 6px; border-radius: 4px; color: var(--text-main);">UPI</span>
+        <span style="font-size: 12px; font-weight: 700; border: 1.5px solid var(--text-muted); padding: 2px 6px; border-radius: 4px; color: var(--text-main);">NetBanking</span>
+      </div>
+    </div>
+    
+    <div class="container footer-bottom">
+      <div class="footer-credits">
+        &copy; 2026 Taaza Cafe. All rights reserved.
+      </div>
+      <div>
+        Designed for <a href="https://maps.app.goo.gl/eHxP7pTL5CNyHFLXA" target="_blank" rel="noopener">Taaza Tiffins, Turkayamjal</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Main JavaScript File -->
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+[2026-07-01 14:23:48] [SMS SENT] To: +91-9876543210 | Message: Dear Yashwanth, your Taaza Cafe order TZ-C4BC1B has been confirmed. Total Paid: Rs 40.00. Thank you!
+[2026-07-01 14:37:54] [SMS SENT] To: +91-9346108928 | Message: Dear ganesh, your Taaza Cafe order TZ-217FE2 has been confirmed. Total Paid: Rs 70.00. Thank you!
+[2026-07-01 14:51:14] [SMS SENT] To: +91-9603022330 | Message: Dear Yashwanth, your Taaza Cafe order TZ-DBA054 has been confirmed. Total Paid: Rs 35.00. Thank you!
+[2026-07-01 14:54:47] [SMS SENT] To: +91-9346108928 | Message: Dear ganesh, your Taaza Cafe order TZ-067477 has been confirmed. Total Paid: Rs 35.00. Thank you!
+[2026-07-01 14:55:15] [SMS SENT] To: +91-9346108928 | Message: Dear ganesh, your Taaza Cafe order TZ-D6A6EF has been confirmed. Total Paid: Rs 40.00. Thank you!
+[2026-07-01 15:02:30] [SMS SENT] To: +91-9346108928 | Message: Dear ganesh, your Taaza Cafe order TZ-57765E has been confirmed. Total Paid: Rs 35.00. Thank you!
+[2026-07-01 15:11:34] [SMS SENT] To: +91-9346108928 | Message: Dear ganesh, your Taaza Cafe order TZ-08864B has been confirmed. Total Paid: Rs 35.00. Thank you!
+[2026-07-01 15:19:47] [SMS SENT] To: +91-9346108928 | Message: Dear ganesh, your Taaza Cafe order TZ-A15D39 has been confirmed. Total Paid: Rs 45.00. Thank you!
+[2026-07-01 15:20:10] [SMS SENT] To: +91-9346108928 | Message: Dear ganesh, your Taaza Cafe order TZ-7E5BB8 has been confirmed. Total Paid: Rs 45.00. Thank you!
+[2026-07-01 15:25:16] [SMS SENT] To: +91-9346108928 | Message: Dear ganesh, your Taaza Cafe order TZ-3C4F66 has been confirmed. Total Paid: Rs 35.00. Thank you!
+[2026-07-01 15:47:45] [SMS SENT] To: +91-9876543210 | Message: Dear Yashwanth, your Taaza Cafe order TZ-928C25 has been confirmed. Total Paid: Rs 80.00. Thank you!
+[2026-07-02 13:57:07] [SMS SENT] To: +91-9603022334 | Message: Dear Yashwanth Veggalam, your Taaza Cafe order TZ-95AB4C has been confirmed. Total Paid: Rs 25.00. Thank you!
+[2026-07-02 14:46:50] [SMS SENT] To: +91-9603022334 | Message: Dear Yashwanth Veggalam, your Taaza Cafe order TZ-EFE203 has been confirmed. Total Paid: Rs 95.00. Thank you!

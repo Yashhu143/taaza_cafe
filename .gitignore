@@ -1,0 +1,15 @@
+# Ignore environment configuration
+.env
+
+# Ignore SQLite database file
+taaza_cafe.db
+
+# Ignore local python virtual environments and cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+env/
+venv/
+ENV/
