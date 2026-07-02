@@ -1,0 +1,10 @@
+[2026-07-01 16:03:46] [VERIFICATION OTP] Phone (+91-9848022338): 794927 | Email (ganesh.kumar@example.com): 149594
+[2026-07-02 13:04:15] [VERIFICATION OTP] Phone (+91-9603022334): 738426 | Email (yashwanthyash0705@gmail.com): 873379
+[2026-07-02 13:05:30] [VERIFICATION OTP] Phone (+91-9603022334): 322677 | Email (yashwanthyash0705@gmail.com): 657991
+[2026-07-02 13:07:32] [VERIFICATION OTP] Phone (+91-9603022334): 166599 | Email (yashwanthyash0705@gmail.com): 958727
+[2026-07-02 13:11:51] [VERIFICATION OTP] For Verification Test (Phone: 9848022339 / Email: test.verification@example.com): Code = 450617
+[2026-07-02 13:11:51] [VERIFICATION OTP] For Yashwanth Rao (Phone: 9848022330 / Email: yashwanth.rao@example.com): Code = 858407
+[2026-07-02 13:12:27] [VERIFICATION OTP] For Yashwanth Rao (Phone: 9848022331 / Email: yashwanth.rao1@example.com): Code = 913004
+[2026-07-02 13:20:30] [VERIFICATION OTP] For Yashwanth Rao (Phone: 9848022332 / Email: yashwanth.rao2@example.com): Code = 311595
+[2026-07-02 13:44:25] [VERIFICATION OTP] For Yashwanth Veggalam (Phone: 9603022334 / Email: yashwanthyash0705@gmail.com): Code = 855172
+[2026-07-02 18:26:03] [VERIFICATION OTP] For GAnesh (Phone: 7894561231 / Email: veggalamyashwanth@gmail.com): Code = 205899
